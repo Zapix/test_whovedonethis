@@ -1,0 +1,21 @@
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+
+from whovedonethis import decorator
+
+from testlib import models
+
+@receiver(pre_save, sender = models.TestCreated)
+@decorator.add_created_user
+def pre_save_testcreated_handler(sender, instance, **kwargs):
+    pass
+
+@receiver(pre_save, sender=models.TestUpdated)
+@decorator.add_updated_user
+def pre_save_testupdated_handler(sender, instance, **kwargs):
+    pass
+
+@receiver(pre_save, sender=models.TestUpdatedAndCreated)
+@decorator.add_created_updated_user
+def pre_save_testcreatedupdated_handler(sender, instance, **kwargs):
+    pass

@@ -1,0 +1,3 @@
+Django==1.3.1
+-e git+https://github.com/Zapix/whovedonethis.git@3658cd0ef291bfa95dc60cb6457884f25136707d#egg=django_whovedonethis-dev
+wsgiref==0.1.2
